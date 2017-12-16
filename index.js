@@ -3,39 +3,39 @@
 //	'use strict';
 
 	var _DATA = [		//地图数据
-		[35, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3,36],
-		[ 5,35, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4,36,35,36,35, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4,36, 6],
+		[35,10, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3,43,53,43,53, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3,11,36],
+		[17,35, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4,63,73,63,73, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4,36,12],
 		[ 5, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 6, 5, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 6],
-		[ 5, 6, 0,35, 3, 3,36, 0,35,36,35,36, 0, 5, 6, 5, 6, 0,35,36,35,36, 0,35, 3, 3,36, 0, 5, 6],
-		[ 5, 6, 0, 5,35,36, 6, 0, 5,45,46, 6, 0, 5,45,46, 6, 0, 5,45,46, 6, 0, 5,35,36, 6, 0, 5, 6],
-		[ 5, 6, 0,45,46,45,46, 0,45, 4, 4,46, 0,45, 4, 4,46, 0,45, 4, 4,46, 0,45,46,45,46, 0, 5, 6],
+		[ 5, 6, 0,35,10,11,36, 0,35,36,35,36, 0, 5, 6, 5, 6, 0,35,36,35,36, 0,35,10,11,36, 0, 5, 6],
+		[ 5, 6, 0,17,35,36,12, 0,16,45,46,13, 0,16,45,46,13, 0,16,45,46,13, 0,17,35,36,12, 0, 5, 6],
+		[ 5, 6, 0,45,46,45,46, 0,45,15,14,46, 0,45,15,14,46, 0,45,15,14,46, 0,45,46,45,46, 0, 5, 6],
 		[ 5, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 6],
-		[ 5, 6, 0,35, 3, 3,36, 0,35,36, 0,35, 3, 3, 3, 3, 3, 3,36, 0,35,36, 0,35, 3, 3,36, 0, 5, 6],
-		[ 5, 6, 0,45, 4, 4,46, 0, 5, 6, 0,45, 4, 4,36,35, 4, 4,46, 0, 5, 6, 0,45, 4, 4,46, 0, 5, 6],
+		[ 5, 6, 0,35, 3, 3,36, 0,35,36, 0,35, 3, 3,43,53, 3, 3,36, 0,35,36, 0,35, 3, 3,36, 0, 5, 6],
+		[ 5, 6, 0,45, 4, 4,46, 0, 5, 6, 0,45, 4, 4,63,73, 4, 4,46, 0, 5, 6, 0,45, 4, 4,46, 0, 5, 6],
 		[ 5, 6, 0, 0, 0, 0, 0, 0, 5, 6, 0, 0, 0, 0, 5, 6, 0, 0, 0, 0, 5, 6, 0, 0, 0, 0, 0, 0, 5, 6],
-		[ 5,45, 3, 3, 3, 3,36, 0, 5,45, 3, 3,36, 0, 5, 6, 0,35, 3, 3,46, 6, 0,35, 3, 3, 3, 3,46, 6],
-		[ 5,35, 4, 4, 4,36, 6, 0, 5,35, 4, 4,46, 0,45,46, 0,45, 4, 4,36, 6, 0, 5,35, 4, 4, 4,36, 6],
+		[ 5,45, 3, 3, 3,11,36, 0, 5,45, 3, 3,36, 0, 5, 6, 0,35, 3, 3,46, 6, 0,35,10, 3, 3, 3,46, 6],
+		[ 5,35, 4, 4, 4,36,12, 0, 5,35, 4, 4,46, 0,45,46, 0,45, 4, 4,36, 6, 0,17,35, 4, 4, 4,36, 6],
 		[ 5, 6, 1, 1, 1, 5, 6, 0, 5, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 6, 0, 5, 6, 1, 1, 1, 5, 6],
-		[ 5,45, 3, 3, 3,46, 6, 0, 5, 6, 0,35, 3, 3, 2, 2, 3, 3,36, 0, 5, 6, 0, 5,45, 3, 3, 3,46, 6],
-		[45, 4, 4, 4, 4, 4,46, 0,45,46, 0, 5, 2, 2, 2, 2, 2, 2, 6, 0,45,46, 0,45, 4, 4, 4, 4, 4,46],
+		[16,45, 3, 3, 3,46,13, 0, 5, 6, 0,35, 3, 3, 2, 2, 3, 3,36, 0, 5, 6, 0,16,45, 3, 3, 3,46,13],
+		[45,15, 4, 4, 4,14,46, 0,45,46, 0, 5, 2, 2, 2, 2, 2, 2, 6, 0,45,46, 0,45,15, 4, 4, 4,14,46],
 		[ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 2, 2, 2, 2, 2, 2, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-		[35, 3, 3, 3, 3, 3,36, 0,35,36, 0, 5, 2, 2, 2, 2, 2, 2, 6, 0,35,36, 0,35, 3, 3, 3, 3, 3,36],
-		[ 5,35, 4, 4, 4,36, 6, 0, 5, 6, 0,45, 4, 4, 4, 4, 4, 4,46, 0, 5, 6, 0, 5,35, 4, 4, 4,36, 6],
+		[35,10, 3, 3, 3,11,36, 0,35,36, 0, 5, 2, 2, 2, 2, 2, 2, 6, 0,35,36, 0,35,10, 3, 3, 3,11,36],
+		[17,35, 4, 4, 4,36,12, 0, 5, 6, 0,45, 4, 4, 4, 4, 4, 4,46, 0, 5, 6, 0,17,35, 4, 4, 4,36,12],
 		[ 5, 6, 1, 1, 1, 5, 6, 0, 5, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 6, 0, 5, 6, 1, 1, 1, 5, 6],
-		[ 5,45, 3, 3, 3,46, 6, 0, 5, 6, 0,35, 3, 3, 3, 3, 3, 3,36, 0, 5, 6, 0, 5,45, 3, 3, 3,46, 6],
-		[ 5,35, 4, 4, 4, 4,46, 0,45,46, 0,45, 4, 4,36,35, 4, 4,46, 0,45,46, 0,45, 4, 4, 4, 4,36, 6],
+		[ 5,45, 3, 3, 3,46,13, 0, 5, 6, 0,35, 3, 3,43,53, 3, 3,36, 0, 5, 6, 0,16,45, 3, 3, 3,46, 6],
+		[ 5,35, 4, 4, 4,14,46, 0,45,46, 0,45, 4, 4,63,73, 4, 4,46, 0,45,46, 0,45,15, 4, 4, 4,36, 6],
 		[ 5, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 6],
-		[ 5, 6, 0,35, 3, 3,36, 0,35, 3, 3, 3,36, 0, 5, 6, 0,35, 3, 3, 3,36, 0,35, 3, 3,36, 0, 5, 6],
-		[ 5, 6, 0,45, 4,36, 6, 0,45, 4, 4, 4,46, 0,45,46, 0,45, 4, 4, 4,46, 0, 5,35, 4,46, 0, 5, 6],
+		[ 5, 6, 0,35, 3,11,36, 0,35, 3, 3, 3,36, 0, 5, 6, 0,35, 3, 3, 3,36, 0,35,10, 3,36, 0, 5, 6],
+		[ 5, 6, 0,45, 4,36,12, 0,45, 4, 4, 4,46, 0,45,46, 0,45, 4, 4, 4,46, 0,17,35, 4,46, 0, 5, 6],
 		[ 5, 6, 0, 0, 0, 5, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 6, 0, 0, 0, 5, 6],
-		[ 5,45, 3,36, 0, 5, 6, 0,35,36, 0,35, 3, 3, 3, 3, 3, 3,36, 0,35,36, 0, 5, 6, 0,35, 3,46, 6],
-		[ 5,35, 4,46, 0,45,46, 0, 5, 6, 0,45, 4, 4,36,35, 4, 4,46, 0, 5, 6, 0,45,46, 0,45, 4,36, 6],
+		[ 5,45, 3,36, 0, 5, 6, 0,35,36, 0,35, 3, 3,43,53, 3, 3,36, 0,35,36, 0, 5, 6, 0,35, 3,46, 6],
+		[ 5,35, 4,46, 0,45,46, 0, 5, 6, 0,45, 4, 4,63,73, 4, 4,46, 0, 5, 6, 0,45,46, 0,45, 4,36, 6],
 		[ 5, 6, 0, 0, 0, 0, 0, 0, 5, 6, 0, 0, 0, 0, 5, 6, 0, 0, 0, 0, 5, 6, 0, 0, 0, 0, 0, 0, 5, 6],
 		[ 5, 6, 0,35, 3, 3, 3, 3,46,45, 3, 3,36, 0, 5, 6, 0,35, 3, 3,46,45, 3, 3, 3, 3,36, 0, 5, 6],
 		[ 5, 6, 0,45, 4, 4, 4, 4, 4, 4, 4, 4,46, 0,45,46, 0,45, 4, 4, 4, 4, 4, 4, 4, 4,46, 0, 5, 6],
 		[ 5, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 6],
-		[ 5,45, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3,46, 6],
-		[45, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4,46]
+		[16,45, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3,46,13],
+		[45,15, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4,14,46]
 	],
 	_GOODS = {			//energy beans
 		'2,4':1,
@@ -84,7 +84,7 @@
 				context.textAlign = 'center';
 				context.textBaseline = 'middle';
 				context.fillStyle = '#FFF';
-				context.fillText('Train-Man',this.x,this.y);
+				context.fillText('Pac-Train',this.x,this.y);
 			}
 		});
 /*		stage.createItem({
@@ -160,7 +160,7 @@
 					for(var i=0; i<this.x_length; i++){
 						var value = this.get(i,j);
 						if(value){
-							context.strokeStyle=value==2?"#FFF":"#3b5a77";
+							context.strokeStyle=value==2?"#FFF":"#559cb2";
 							var pos = this.coord2position(i,j);
 							var dist = this.size/2;
 							switch(value){
@@ -198,12 +198,84 @@
 									context.stroke();
 									context.closePath();
 									break;
+								case 43:
+									context.beginPath();
+									context.moveTo(pos.x-dist,pos.y);
+									context.lineTo(pos.x+dist,pos.y);
+									context.moveTo(pos.x+dist/2,pos.y);
+									context.lineTo(pos.x-dist/4,pos.y+dist*2);
+									context.stroke();
+									context.closePath();
+									break;
+								case 53:
+									context.beginPath();
+									context.moveTo(pos.x-dist,pos.y);
+									context.lineTo(pos.x+dist,pos.y);
+									context.arc(pos.x-this.size/2,pos.y+this.size/2,this.size/2,1.5*Math.PI,2*Math.PI,false);
+									context.stroke();
+									context.closePath();
+									break;
+								case 63:
+									context.beginPath();
+									context.moveTo(pos.x-dist,pos.y);
+									context.lineTo(pos.x+dist,pos.y);
+									context.arc(pos.x-this.size/2,pos.y+this.size/2,this.size/2,1.5*Math.PI,2*Math.PI,false);
+									context.stroke();
+									context.closePath();
+									break;
+								case 73:
+									context.beginPath();
+									context.moveTo(pos.x-dist,pos.y);
+									context.lineTo(pos.x+dist,pos.y);
+									context.moveTo(pos.x,pos.y-dist);
+									context.lineTo(pos.x,pos.y+dist);
+									context.moveTo(pos.x-dist*2,pos.y+dist/2);
+									context.lineTo(pos.x,pos.y-dist/4);
+									context.stroke();
+									context.closePath();
+									break;
+								case 10:
+									context.beginPath();
+									context.moveTo(pos.x-dist,pos.y);
+									context.lineTo(pos.x+dist,pos.y);
+									context.moveTo(pos.x-dist/4,pos.y);
+									context.lineTo(pos.x+dist/2,pos.y+dist*2);
+									context.stroke();
+									context.closePath();
+									break;
+								case 11:
+									context.beginPath();
+									context.moveTo(pos.x-dist,pos.y);
+									context.lineTo(pos.x+dist,pos.y);
+									context.moveTo(pos.x+dist/2,pos.y);
+									context.lineTo(pos.x-dist/4,pos.y+dist*2);
+									context.stroke();
+									context.closePath();
+									break;
 								case 4:
 									context.beginPath();
 									context.moveTo(pos.x-dist,pos.y);
 									context.lineTo(pos.x+dist,pos.y);
 									context.moveTo(pos.x,pos.y-dist);
 									context.lineTo(pos.x,pos.y);
+									context.stroke();
+									context.closePath();
+									break;
+								case 14:
+									context.beginPath();
+									context.moveTo(pos.x-dist,pos.y);
+									context.lineTo(pos.x+dist,pos.y);
+									context.moveTo(pos.x-dist/4,pos.y-dist*2);
+									context.lineTo(pos.x+dist/2,pos.y);
+									context.stroke();
+									context.closePath();
+									break;
+								case 15:
+									context.beginPath();
+									context.moveTo(pos.x-dist,pos.y);
+									context.lineTo(pos.x+dist,pos.y);
+									context.moveTo(pos.x+dist/2,pos.y-dist*2);
+									context.lineTo(pos.x-dist/4,pos.y);
 									context.stroke();
 									context.closePath();
 									break;
@@ -216,12 +288,48 @@
 									context.stroke();
 									context.closePath();
 									break;
+								case 16:
+									context.beginPath();
+									context.moveTo(pos.x,pos.y-dist);
+									context.lineTo(pos.x,pos.y+dist);
+									context.moveTo(pos.x,pos.y+dist/2);
+									context.lineTo(pos.x+dist*2,pos.y-dist/4);
+									context.stroke();
+									context.closePath();
+									break;
+								case 17:
+									context.beginPath();
+									context.moveTo(pos.x,pos.y-dist);
+									context.lineTo(pos.x,pos.y+dist);
+									context.moveTo(pos.x,pos.y-dist/4);
+									context.lineTo(pos.x+dist*2,pos.y+dist/2);
+									context.stroke();
+									context.closePath();
+									break;
 								case 6:
 									context.beginPath();
 									context.moveTo(pos.x,pos.y-dist);
 									context.lineTo(pos.x,pos.y+dist);
 									context.moveTo(pos.x-dist,pos.y);
 									context.lineTo(pos.x,pos.y);
+									context.stroke();
+									context.closePath();
+									break;
+								case 12:
+									context.beginPath();
+									context.moveTo(pos.x,pos.y-dist);
+									context.lineTo(pos.x,pos.y+dist);
+									context.moveTo(pos.x-dist*2,pos.y+dist/2);
+									context.lineTo(pos.x,pos.y-dist/4);
+									context.stroke();
+									context.closePath();
+									break;
+								case 13:
+									context.beginPath();
+									context.moveTo(pos.x,pos.y-dist);
+									context.lineTo(pos.x,pos.y+dist);
+									context.moveTo(pos.x-dist*2,pos.y-dist/4);
+									context.lineTo(pos.x,pos.y+dist/2);
 									context.stroke();
 									context.closePath();
 									break;
@@ -269,7 +377,7 @@
 				context.textAlign = 'left';
 				context.textBaseline = 'bottom';
 				context.fillStyle = '#de4027';
-				context.fillText('SCORE',this.x,this.y);
+				context.fillText('bahn.bonus Punkte',this.x,this.y);
 				context.font = '28px Helvetica';
 				context.textAlign = 'left';
 				context.textBaseline = 'top';
@@ -288,7 +396,7 @@
 					context.textAlign = 'left';
 					context.textBaseline = 'center';
 					context.fillStyle = '#559cb2';
-					context.fillText('PAUSE',this.x,this.y);
+					context.fillText('Zugunterbrechung',this.x,this.y);
 				}
 			}
 		});

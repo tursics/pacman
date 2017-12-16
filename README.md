@@ -1,4 +1,4 @@
-# Train-Man a Pacman clone
+# Pac-Train a Pacman clone
 
 - Demo：tbd
 
