@@ -48,6 +48,14 @@
 	_COLOR = ['#F00','#F93','#0CF','#F9C'],//red, orange
 	_LIFE = 3,
 	_SCORE = 0;
+	_IMAGES = {
+		iceWhite: null,
+		iceBlue: null,
+		iceGreen: null,
+		iceOrange: null,
+		icePink: null,
+		iceEye: null
+	};
 
 	var game = new Game('canvas');
 	//启动页
@@ -391,12 +399,12 @@
 			y:320,
 			frames:25,
 			draw:function(context){
-				if(stage.status==2&&this.times%2){
+				if(stage.status==2/*&&this.times%2*/){
 					context.font = '24px Helvetica';
 					context.textAlign = 'left';
 					context.textBaseline = 'center';
 					context.fillStyle = '#559cb2';
-					context.fillText('Zugunterbrechung',this.x,this.y);
+					context.fillText('Außerplanmäßiger Halt',this.x,this.y);
 				}
 			}
 		});
@@ -514,44 +522,27 @@
 						isSick = this.timeout>80||this.times%2?true:false;
 					}
 					if(this.status!=4){
-						context.fillStyle = isSick?'#BABABA':this.color;
-						context.beginPath();
-						context.arc(this.x,this.y,this.width*.5,0,Math.PI,true);
-						switch(this.times%2){
-							case 0:
-							context.lineTo(this.x-this.width*.5,this.y+this.height*.4);
-							context.quadraticCurveTo(this.x-this.width*.4,this.y+this.height*.5,this.x-this.width*.2,this.y+this.height*.3);
-							context.quadraticCurveTo(this.x,this.y+this.height*.5,this.x+this.width*.2,this.y+this.height*.3);
-							context.quadraticCurveTo(this.x+this.width*.4,this.y+this.height*.5,this.x+this.width*.5,this.y+this.height*.4);
-							break;
-							case 1:
-							context.lineTo(this.x-this.width*.5,this.y+this.height*.3);
-							context.quadraticCurveTo(this.x-this.width*.25,this.y+this.height*.5,this.x,this.y+this.height*.3);
-							context.quadraticCurveTo(this.x+this.width*.25,this.y+this.height*.5,this.x+this.width*.5,this.y+this.height*.3);
-							break;
+						if (isSick) {
+							context.drawImage(_IMAGES.iceWhite, this.x - this.width/2, this.y - this.width/2, this.width, this.width);
+						} else {
+							switch( this.color) {
+								case '#F00':
+									context.drawImage(_IMAGES.iceGreen, this.x - this.width/2, this.y - this.width/2, this.width, this.width);
+									break;
+								case '#F93':
+									context.drawImage(_IMAGES.iceOrange, this.x - this.width/2, this.y - this.width/2, this.width, this.width);
+									break;
+								case '#0CF':
+									context.drawImage(_IMAGES.iceBlue, this.x - this.width/2, this.y - this.width/2, this.width, this.width);
+									break;
+								case '#F9C':
+									context.drawImage(_IMAGES.icePink, this.x - this.width/2, this.y - this.width/2, this.width, this.width);
+									break;
+							}
 						}
-						context.fill();
-						context.closePath();
 					}
-					context.fillStyle = '#FFF';
-					if(isSick){
-						context.beginPath();
-						context.arc(this.x-this.width*.15,this.y-this.height*.21,this.width*.08,0,2*Math.PI,false);
-						context.arc(this.x+this.width*.15,this.y-this.height*.21,this.width*.08,0,2*Math.PI,false);
-						context.fill();
-						context.closePath();
-					}else{
-						context.beginPath();
-						context.arc(this.x-this.width*.15,this.y-this.height*.21,this.width*.12,0,2*Math.PI,false);
-						context.arc(this.x+this.width*.15,this.y-this.height*.21,this.width*.12,0,2*Math.PI,false);
-						context.fill();
-						context.closePath();
-						context.fillStyle = '#000';
-						context.beginPath();
-						context.arc(this.x-this.width*(.15-.04*_COS[this.orientation]),this.y-this.height*(.21-.04*_SIN[this.orientation]),this.width*.07,0,2*Math.PI,false);
-						context.arc(this.x+this.width*(.15+.04*_COS[this.orientation]),this.y-this.height*(.21-.04*_SIN[this.orientation]),this.width*.07,0,2*Math.PI,false);
-						context.fill();
-						context.closePath();
+					if(!isSick){
+						context.drawImage(_IMAGES.iceEye, this.x - this.width/2, this.y - this.width/2, this.width, this.width);
 					}
 				}
 			});
@@ -682,5 +673,20 @@
 			}
 		});
 	})();
+	function loadImages() {
+		_IMAGES.iceWhite = new Image;
+		_IMAGES.iceWhite.src = 'assets/ice-white.png';
+		_IMAGES.iceBlue = new Image;
+		_IMAGES.iceBlue.src = 'assets/ice-blue.png';
+		_IMAGES.iceGreen = new Image;
+		_IMAGES.iceGreen.src = 'assets/ice-green.png';
+		_IMAGES.iceOrange = new Image;
+		_IMAGES.iceOrange.src = 'assets/ice-orange.png';
+		_IMAGES.icePink = new Image;
+		_IMAGES.icePink.src = 'assets/ice-pink.png';
+		_IMAGES.iceEye = new Image;
+		_IMAGES.iceEye.src = 'assets/ice-eyes.png';
+	}
 	game.init();
+	loadImages();
 })();
