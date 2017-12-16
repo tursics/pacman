@@ -1,11 +1,11 @@
-# Pacman 吃豆游戏
+# Train-Man a Pacman clone
 
-- 项目演示(DEMO)地址：http://passer-by.com/pacman/
+- Demo：tbd
 
-### 版权
-本游戏由 [passer-by.com](http://passer-by.com/) 制作，请尊重作者，引用请注明来源。
+### Copyright
+MIT
 
-功能
+### Features
 
 - [x] 地图绘制
 - [x] 玩家控制
