@@ -31,7 +31,7 @@ function Game(id,params){
     var _ = this;
     var settings = {
         width:960,						//画布宽度
-        height:640						//画布高度
+        height:680						//画布高度
     };
     var _extend = function(target,settings,params){
         params = params||{};
@@ -60,16 +60,16 @@ function Game(id,params){
             width:20,				//宽
             height:20,				//高
             type:0,					//对象类型,0表示普通对象(不与地图绑定),1表示玩家控制对象,2表示程序控制对象
-            color:'#F00',			//标识颜色
+            color:'#F00',			//logo color
             status:1,				//对象状态,0表示未激活/结束,1表示正常,2表示暂停,3表示临时,4表示异常
             orientation:0,			//当前定位方向,0表示右,1表示下,2表示左,3表示上
             speed:0,				//移动速度
-            //地图相关
+            //map
             location:null,			//定位地图,Map对象
             coord:null,				//如果对象与地图绑定,需设置地图坐标;若不绑定,则设置位置坐标
             path:[],				//NPC自动行走的路径
             vector:null,			//目标坐标
-            //布局相关
+            //layout
             frames:1,				//速度等级,内部计算器times多少帧变化一次
             times:0,				//刷新画布计数(用于循环动画状态判断)
             timeout:0,				//倒计时(用于过程动画状态判断)

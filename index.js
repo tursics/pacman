@@ -1,49 +1,53 @@
 //主程序,业务逻辑
-(function(){
+(function () {
+//	'use strict';
+
 	var _DATA = [		//地图数据
-		[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
-		[1,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,1],
-		[1,0,1,1,1,1,0,1,1,1,1,1,0,1,1,0,1,1,1,1,1,0,1,1,1,1,0,1],
-		[1,0,1,1,1,1,0,1,1,1,1,1,0,1,1,0,1,1,1,1,1,0,1,1,1,1,0,1],
-		[1,0,1,1,1,1,0,1,1,1,1,1,0,1,1,0,1,1,1,1,1,0,1,1,1,1,0,1],
-		[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
-		[1,0,1,1,1,1,0,1,1,0,1,1,1,1,1,1,1,1,0,1,1,0,1,1,1,1,0,1],
-		[1,0,1,1,1,1,0,1,1,0,1,1,1,1,1,1,1,1,0,1,1,0,1,1,1,1,0,1],
-		[1,0,0,0,0,0,0,1,1,0,0,0,0,1,1,0,0,0,0,1,1,0,0,0,0,0,0,1],
-		[1,1,1,1,1,1,0,1,1,1,1,1,0,1,1,0,1,1,1,1,1,0,1,1,1,1,1,1],
-		[1,1,1,1,1,1,0,1,1,1,1,1,0,1,1,0,1,1,1,1,1,0,1,1,1,1,1,1],
-		[1,1,1,1,1,1,0,1,1,0,0,0,0,0,0,0,0,0,0,1,1,0,1,1,1,1,1,1],
-		[1,1,1,1,1,1,0,1,1,0,1,1,1,2,2,1,1,1,0,1,1,0,1,1,1,1,1,1],
-		[1,1,1,1,1,1,0,1,1,0,1,2,2,2,2,2,2,1,0,1,1,0,1,1,1,1,1,1],
-		[0,0,0,0,0,0,0,0,0,0,1,2,2,2,2,2,2,1,0,0,0,0,0,0,0,0,0,0],
-		[1,1,1,1,1,1,0,1,1,0,1,2,2,2,2,2,2,1,0,1,1,0,1,1,1,1,1,1],
-		[1,1,1,1,1,1,0,1,1,0,1,1,1,1,1,1,1,1,0,1,1,0,1,1,1,1,1,1],
-		[1,1,1,1,1,1,0,1,1,0,0,0,0,0,0,0,0,0,0,1,1,0,1,1,1,1,1,1],
-		[1,1,1,1,1,1,0,1,1,0,1,1,1,1,1,1,1,1,0,1,1,0,1,1,1,1,1,1],
-		[1,1,1,1,1,1,0,1,1,0,1,1,1,1,1,1,1,1,0,1,1,0,1,1,1,1,1,1],
-		[1,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,1],
-		[1,0,1,1,1,1,0,1,1,1,1,1,0,1,1,0,1,1,1,1,1,0,1,1,1,1,0,1],
-		[1,0,1,1,1,1,0,1,1,1,1,1,0,1,1,0,1,1,1,1,1,0,1,1,1,1,0,1],
-		[1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,1],
-		[1,1,1,0,1,1,0,1,1,0,1,1,1,1,1,1,1,1,0,1,1,0,1,1,0,1,1,1],
-		[1,1,1,0,1,1,0,1,1,0,1,1,1,1,1,1,1,1,0,1,1,0,1,1,0,1,1,1],
-		[1,0,0,0,0,0,0,1,1,0,0,0,0,1,1,0,0,0,0,1,1,0,0,0,0,0,0,1],
-		[1,0,1,1,1,1,1,1,1,1,1,1,0,1,1,0,1,1,1,1,1,1,1,1,1,1,0,1],
-		[1,0,1,1,1,1,1,1,1,1,1,1,0,1,1,0,1,1,1,1,1,1,1,1,1,1,0,1],
-		[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
-		[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]
+		[35, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3,36],
+		[ 5,35, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 6],
+		[ 5, 6,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,1],
+		[ 5, 6,0,1,1,1,1,0,1,1,1,1,1,0,1,1,0,1,1,1,1,1,0,1,1,1,1,0,1],
+		[ 5, 6,0,1,1,1,1,0,1,1,1,1,1,0,1,1,0,1,1,1,1,1,0,1,1,1,1,0,1],
+		[ 5, 6,0,1,1,1,1,0,1,1,1,1,1,0,1,1,0,1,1,1,1,1,0,1,1,1,1,0,1],
+		[ 5, 6,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+		[ 5, 6,0,1,1,1,1,0,1,1,0,1,1,1,1,1,1,1,1,0,1,1,0,1,1,1,1,0,1],
+		[ 5, 6,0,1,1,1,1,0,1,1,0,1,1,1,1,1,1,1,1,0,1,1,0,1,1,1,1,0,1],
+		[ 5, 6,0,0,0,0,0,0,1,1,0,0,0,0,1,1,0,0,0,0,1,1,0,0,0,0,0,0,1],
+		[ 5,45, 3, 3, 3, 3,36, 0, 5, 1,1,1,1,0,1,1,0,1,1,1,1,1,0,1,1,1,1,1,1],
+		[45, 4, 4, 4, 4,36, 6, 0, 5, 1,1,1,1,0,1,1,0,1,1,1,1,1,0,1,1,1,1,1,1],
+		[ 1, 1, 1, 1, 1, 5, 6, 0, 5, 1,0,0,0,0,0,0,0,0,0,0,1,1,0,1,1,1,1,1,1],
+		[ 3, 3, 3, 3, 3,46, 6, 0, 5, 1,0,1,1,1,2,2,1,1,1,0,1,1,0,1,1,1,1,1,1],
+		[ 4, 4, 4, 4, 4, 4,46, 0, 5, 1,0,5,2,2,2,2,2,2,6,0,1,1,0,1,1,1,1,1,1],
+		[ 0,0,0,0,0,0,0,0,0,0,0,5,2,2,2,2,2,2,6,0,0,0,0,0,0,0,0,0,0],
+		[ 3,3,3,3,3,3,1,0,1,1,0,5,2,2,2,2,2,2,6,0,1,1,0,1,1,1,1,1,1],
+		[ 4,4,4,4,4,4,1,0,1,1,0,1,1,1,1,1,1,1,46,0,1,1,0,1,1,1,1,1,1],
+		[ 1,1,1,1,1,1,1,0,1,1,0,0,0,0,0,0,0,0,0,0,1,1,0,1,1,1,1,1,1],
+		[ 5,1,1,1,1,1,1,0,1,1,0,1,1,1,1,1,1,1,1,0,1,1,0,1,1,1,1,1,1],
+		[ 5,1,1,1,1,1,1,0,1,1,0,1,1,1,1,1,1,1,1,0,1,1,0,1,1,1,1,1,1],
+		[ 5, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5],
+		[ 5, 6, 0,35, 3, 3,36, 0,35, 3, 3, 3,36, 0, 5, 6, 0,35, 3, 3, 3,36, 0,35, 3, 3,36, 0, 5],
+		[ 5, 6, 0,45, 4,36, 6, 0,45, 4, 4, 4,46, 0, 5, 6, 0,45, 4, 4, 4,46, 0, 1, 1, 1, 1, 0, 5],
+		[ 5, 6, 0, 0, 0, 5, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 1],
+		[ 5,45, 3,36, 0, 5, 6, 0, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 1],
+		[ 5,35, 4,46, 0,45,46, 0, 1, 1, 0,1,1,1,1,1,1,1,1,0,1,1,0,1,1,0,1,1,1],
+		[ 5, 6, 0, 0, 0, 0, 0, 0, 1, 1, 0,0,0,0,1,1,0,0,0,0,1,1,0,0,0,0,0,0,1],
+		[ 5, 6, 0, 1, 1, 1, 1, 1, 1, 1, 1,1,1,0,1,1,0,1,1,1,1,1,1,1,1,1,1,0,1],
+		[ 5, 6, 0, 1, 1, 1, 1, 1, 1, 1, 1,1,1,0,1,1,0,1,1,1,1,1,1,1,1,1,1,0,1],
+		[ 5, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+		[ 5,45, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3,46, 6],
+		[45, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4,46]
 	],
-	_GOODS = {			//能量豆
-		'1,3':1,
-		'26,3':1,
-		'1,23':1,
-		'26,23':1
+	_GOODS = {			//energy beans
+		'2,4':1,
+		'27,4':1,
+		'2,24':1,
+		'27,24':1
 	},
 	_COS = [1,0,-1,0],
 	_SIN = [0,1,0,-1],
-	_COLOR = ['#F00','#F93','#0CF','#F9C'],//红,橙,
+	_COLOR = ['#F00','#F93','#0CF','#F9C'],//red, orange
 	_LIFE = 3,
-	_SCORE = 0;		//得分
+	_SCORE = 0;
 
 	var game = new Game('canvas');
 	//启动页
@@ -80,11 +84,10 @@
 				context.textAlign = 'center';
 				context.textBaseline = 'middle';
 				context.fillStyle = '#FFF';
-				context.fillText('Pac-Man',this.x,this.y);
+				context.fillText('Train-Man',this.x,this.y);
 			}
 		});
-		//版权信息
-		stage.createItem({
+/*		stage.createItem({
 			x:game.width-12,
 			y:game.height-5,
 			draw:function(context){
@@ -92,10 +95,9 @@
 				context.textAlign = 'right';
 				context.textBaseline = 'bottom';
 				context.fillStyle = '#AAA';
-				context.fillText('© passer-by.com',this.x,this.y);
+				context.fillText('© xxx',this.x,this.y);
 			}
-		});
-		//事件绑定
+		});*/
 		stage.bind('keydown',function(e){
 			switch(e.keyCode){
 				case 13:
@@ -111,7 +113,9 @@
 		stage = game.createStage({
 			update:function(){
 				var stage = this;
-				if(stage.status==1){								//场景正常运行
+
+				if(stage.status==1){
+					//normal scene
 					items.forEach(function(item){
 						if(map&&!map.get(item.coord.x,item.coord.y)&&!map.get(player.coord.x,player.coord.y)){
 							var dx = item.x-player.x;
@@ -130,7 +134,8 @@
 					if(JSON.stringify(beans.data).indexOf(0)<0){	//当没有物品的时候，进入结束画面
 						game.nextStage();
 					}
-				}else if(stage.status==3){		//场景临时状态
+				}else if(stage.status==3){
+					//temporary scene
 					if(!stage.timeout){
 						_LIFE--;
 						if(_LIFE){
@@ -143,7 +148,7 @@
 				}
 			}
 		});
-		//绘制地图
+		//draw the map
 		map = stage.createMap({
 			x:60,
 			y:10,
@@ -155,66 +160,97 @@
 					for(var i=0; i<this.x_length; i++){
 						var value = this.get(i,j);
 						if(value){
-							var code = [0,0,0,0];
-							if(this.get(i+1,j)&&!(this.get(i+1,j-1)&&this.get(i+1,j+1)&&this.get(i,j-1)&&this.get(i,j+1))){
-								code[0]=1;
-							}
-							if(this.get(i,j+1)&&!(this.get(i-1,j+1)&&this.get(i+1,j+1)&&this.get(i-1,j)&&this.get(i+1,j))){
-								code[1]=1;
-							}
-							if(this.get(i-1,j)&&!(this.get(i-1,j-1)&&this.get(i-1,j+1)&&this.get(i,j-1)&&this.get(i,j+1))){
-								code[2]=1;
-							}
-							if(this.get(i,j-1)&&!(this.get(i-1,j-1)&&this.get(i+1,j-1)&&this.get(i-1,j)&&this.get(i+1,j))){
-								code[3]=1;
-							}
-							if(code.indexOf(1)>-1){
-								context.strokeStyle=value==2?"#FFF":"#09C";
-								var pos = this.coord2position(i,j);
-								switch(code.join('')){
-									case '1100':
+							context.strokeStyle=value==2?"#FFF":"#3b5a77";
+							var pos = this.coord2position(i,j);
+							var dist = this.size/2;
+							switch(value){
+									case 35:
+									case '3100':
 										context.beginPath();
 										context.arc(pos.x+this.size/2,pos.y+this.size/2,this.size/2,Math.PI,1.5*Math.PI,false);
+/*										if (jo === '3100') {
+											context.moveTo(pos.x+dist/2,pos.y);
+											context.lineTo(pos.x+dist/2,pos.y+dist);
+										}*/
 										context.stroke();
 										context.closePath();
 										break;
-									case '0110':
+									case 36:
+									case '0130':
 										context.beginPath();
 										context.arc(pos.x-this.size/2,pos.y+this.size/2,this.size/2,1.5*Math.PI,2*Math.PI,false);
+/*										if (jo === '0130') {
+											context.moveTo(pos.x-dist/2,pos.y);
+											context.lineTo(pos.x-dist/2,pos.y+dist);
+										}*/
 										context.stroke();
 										context.closePath();
 										break;
-									case '0011':
+									case 46:
+									case '0041':
 										context.beginPath();
 										context.arc(pos.x-this.size/2,pos.y-this.size/2,this.size/2,0,.5*Math.PI,false);
+/*										if (jo === '0041') {
+											context.moveTo(pos.x-dist/2,pos.y-dist);
+											context.lineTo(pos.x-dist/2,pos.y);
+										}*/
 										context.stroke();
 										context.closePath();
 										break;
-									case '1001':
+									case 45:
+									case '4001':
 										context.beginPath();
 										context.arc(pos.x+this.size/2,pos.y-this.size/2,this.size/2,.5*Math.PI,1*Math.PI,false);
+/*										if (jo === '4001') {
+											context.moveTo(pos.x+dist/2,pos.y-dist);
+											context.lineTo(pos.x+dist/2,pos.y);
+										}*/
 										context.stroke();
 										context.closePath();
 										break;
-									default:
-										var dist = this.size/2;
-										code.forEach(function(v,index){
-											if(v){
-												context.beginPath();
-												context.moveTo(pos.x,pos.y);
-												context.lineTo(pos.x-_COS[index]*dist,pos.y-_SIN[index]*dist);
-												context.stroke();
-												context.closePath();							
-											}
-										});
-								}
+								case 3:
+									context.beginPath();
+									context.moveTo(pos.x-dist,pos.y);
+									context.lineTo(pos.x+dist,pos.y);
+									context.moveTo(pos.x,pos.y);
+									context.lineTo(pos.x,pos.y+dist);
+									context.stroke();
+									context.closePath();
+									break;
+								case 4:
+									context.beginPath();
+									context.moveTo(pos.x-dist,pos.y);
+									context.lineTo(pos.x+dist,pos.y);
+									context.moveTo(pos.x,pos.y-dist);
+									context.lineTo(pos.x,pos.y);
+									context.stroke();
+									context.closePath();
+									break;
+								case 5:
+									context.beginPath();
+									context.moveTo(pos.x,pos.y-dist);
+									context.lineTo(pos.x,pos.y+dist);
+									context.moveTo(pos.x,pos.y);
+									context.lineTo(pos.x+dist,pos.y);
+									context.stroke();
+									context.closePath();
+									break;
+								case 6:
+									context.beginPath();
+									context.moveTo(pos.x,pos.y-dist);
+									context.lineTo(pos.x,pos.y+dist);
+									context.moveTo(pos.x-dist,pos.y);
+									context.lineTo(pos.x,pos.y);
+									context.stroke();
+									context.closePath();
+									break;
 							}
 						}
 					}
 				}
 			}
 		});
-		//物品地图
+		//items
 		beans = stage.createMap({
 			x:60,
 			y:10,
@@ -225,21 +261,25 @@
 					for(var i=0; i<this.x_length; i++){
 						if(!this.get(i,j)){
 							var pos = this.coord2position(i,j);
-							context.fillStyle = "#F5F5DC";
 							if(_GOODS[i+','+j]){
+								context.fillStyle = "#fff";
 								context.beginPath();
-								context.arc(pos.x,pos.y,3+this.times%2,0,2*Math.PI,true);
+								context.arc(pos.x,pos.y,4+this.times%4,0,2*Math.PI,true);
 								context.fill();
 								context.closePath();
 							}else{
-								context.fillRect(pos.x-2,pos.y-2,4,4);
+								context.fillStyle = "#e6bd2d";
+								context.beginPath();
+								context.arc(pos.x,pos.y,2.5,0,2*Math.PI,true);
+								context.fill();
+								context.closePath();
 							}
 						}
 					}
 				}
 			}
 		});
-		//得分
+		//score
 		stage.createItem({
 			x:690,
 			y:100,
@@ -247,16 +287,16 @@
 				context.font = 'bold 28px Helvetica';
 				context.textAlign = 'left';
 				context.textBaseline = 'bottom';
-				context.fillStyle = '#C33';
+				context.fillStyle = '#de4027';
 				context.fillText('SCORE',this.x,this.y);
 				context.font = '28px Helvetica';
 				context.textAlign = 'left';
 				context.textBaseline = 'top';
-				context.fillStyle = '#FFF';
+				context.fillStyle = '#559cb2';
 				context.fillText(_SCORE,this.x+12,this.y);
 			}
 		});
-		//状态文字
+		//status
 		stage.createItem({
 			x:690,
 			y:320,
@@ -266,12 +306,12 @@
 					context.font = '24px Helvetica';
 					context.textAlign = 'left';
 					context.textBaseline = 'center';
-					context.fillStyle = '#09F';
+					context.fillStyle = '#559cb2';
 					context.fillText('PAUSE',this.x,this.y);
 				}
 			}
 		});
-		//生命值
+		//lifes
 		stage.createItem({
 			x:705,
 			y:540,
@@ -297,8 +337,8 @@
 				orientation:3,
 				color:_COLOR[i],
 				location:map,
-				coord:{x:12+i,y:14},
-				vector:{x:12+i,y:14},
+				coord:{x:13+i,y:15},
+				vector:{x:13+i,y:15},
 				type:2,
 				frames:10,
 				speed:1,
@@ -434,7 +474,7 @@
 			height:30,
 			type:1,
 			location:map,
-			coord:{x:13.5,y:23},
+			coord:{x:14.5,y:24},
 			orientation:2,
 			speed:2,
 			frames:10,
