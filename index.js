@@ -49,6 +49,10 @@
 	_LIFE = 3,
 	_SCORE = 0;
 	_IMAGES = {
+		regioLeft0: null,
+		regioRight0: null,
+		regioFront0: null,
+		regioBack0: null,
 		iceWhite: null,
 		iceBlue: null,
 		iceGreen: null,
@@ -64,12 +68,12 @@
 		//logo
 		stage.createItem({
 			x:game.width/2,
-			y:game.height*.45,
+			y:game.height*.4,
 			width:100,
 			height:100,
 			frames:3,
 			draw:function(context){
-				var t = Math.abs(5-this.times%10);
+/*				var t = Math.abs(5-this.times%10);
 				context.fillStyle = '#FFE600';
 				context.beginPath();
 				context.arc(this.x,this.y,this.width/2,t*.04*Math.PI,(2-t*.04)*Math.PI,false);
@@ -80,7 +84,8 @@
 				context.beginPath();
 				context.arc(this.x+5,this.y-27,7,0,2*Math.PI,false);
 				context.closePath();
-				context.fill();
+				context.fill();*/
+//				context.drawImage(_IMAGES.regioFront0, this.x - this.width, this.y - this.width, this.width*2, this.width*2);
 			}
 		});
 		//游戏名
@@ -416,13 +421,8 @@
 			height:30,
 			draw:function(context){
 				for(var i=0;i<_LIFE-1;i++){
-					var x=this.x+40*i,y=this.y;
-					context.fillStyle = '#FFE600';
-					context.beginPath();
-					context.arc(x,y,this.width/2,.15*Math.PI,-.15*Math.PI,false);
-					context.lineTo(x,y);
-					context.closePath();
-					context.fill();
+					var x=this.x+80*i,y=this.y;
+					context.drawImage(_IMAGES.regioFront0, x - this.width, y - this.width, this.width*2, this.width*2);
 				}
 			}
 		});
@@ -608,7 +608,21 @@
 				}
 				context.lineTo(this.x,this.y);
 				context.closePath();
-				context.fill();
+//				context.fill();
+				switch(this.orientation) {
+					case 0:
+						context.drawImage(_IMAGES.regioRight0, this.x - this.width/2, this.y - this.width/2, this.width, this.width);
+						break;
+					case 1:
+						context.drawImage(_IMAGES.regioFront0, this.x - this.width/2, this.y - this.width/2, this.width, this.width);
+						break;
+					case 2:
+						context.drawImage(_IMAGES.regioLeft0, this.x - this.width/2, this.y - this.width/2, this.width, this.width);
+						break;
+					case 3:
+						context.drawImage(_IMAGES.regioBack0, this.x - this.width/2, this.y - this.width/2, this.width, this.width);
+						break;
+				}
 			}
 		});
 		//事件绑定
@@ -674,6 +688,14 @@
 		});
 	})();
 	function loadImages() {
+		_IMAGES.regioBack0 = new Image;
+		_IMAGES.regioBack0.src = 'assets/regio-back-0.png';
+		_IMAGES.regioLeft0 = new Image;
+		_IMAGES.regioLeft0.src = 'assets/regio-left-0.png';
+		_IMAGES.regioRight0 = new Image;
+		_IMAGES.regioRight0.src = 'assets/regio-right-0.png';
+		_IMAGES.regioFront0 = new Image;
+		_IMAGES.regioFront0.src = 'assets/regio-front-0.png';
 		_IMAGES.iceWhite = new Image;
 		_IMAGES.iceWhite.src = 'assets/ice-white.png';
 		_IMAGES.iceBlue = new Image;
