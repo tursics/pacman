@@ -120,8 +120,13 @@
 			switch(e.keyCode){
 				case 13:
 				case 32:
-				game.nextStage();
-				break;
+					_PLAYER = 'regio';
+					game.nextStage();
+					break;
+				case 67:
+					_PLAYER = 'cargo';
+					game.nextStage();
+					break;
 			}
 		});
 	})();
