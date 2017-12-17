@@ -48,11 +48,16 @@
 	_COLOR = ['#F00','#F93','#0CF','#F9C'],//red, orange
 	_LIFE = 3,
 	_SCORE = 0;
+	_PLAYER = 'regio';
 	_IMAGES = {
 		regioLeft0: null,
 		regioRight0: null,
 		regioFront0: null,
 		regioBack0: null,
+		cargoLeft0: null,
+		cargoRight0: null,
+		cargoFront0: null,
+		cargoBack0: null,
 		iceWhite: null,
 		iceBlue: null,
 		iceGreen: null,
@@ -85,7 +90,7 @@
 				context.arc(this.x+5,this.y-27,7,0,2*Math.PI,false);
 				context.closePath();
 				context.fill();*/
-//				context.drawImage(_IMAGES.regioFront0, this.x - this.width, this.y - this.width, this.width*2, this.width*2);
+//				context.drawImage(_IMAGES.cargoFront0, this.x - this.width, this.y - this.width, this.width*2, this.width*2);
 			}
 		});
 		//游戏名
@@ -422,7 +427,11 @@
 			draw:function(context){
 				for(var i=0;i<_LIFE-1;i++){
 					var x=this.x+80*i,y=this.y;
-					context.drawImage(_IMAGES.regioFront0, x - this.width, y - this.width, this.width*2, this.width*2);
+					if (_PLAYER === 'cargo') {
+						context.drawImage(_IMAGES.cargoFront0, x - this.width, y - this.width, this.width*2, this.width*2);
+					} else {
+						context.drawImage(_IMAGES.regioFront0, x - this.width, y - this.width, this.width*2, this.width*2);
+					}
 				}
 			}
 		});
@@ -609,19 +618,36 @@
 				context.lineTo(this.x,this.y);
 				context.closePath();
 //				context.fill();
-				switch(this.orientation) {
-					case 0:
-						context.drawImage(_IMAGES.regioRight0, this.x - this.width/2, this.y - this.width/2, this.width, this.width);
-						break;
-					case 1:
-						context.drawImage(_IMAGES.regioFront0, this.x - this.width/2, this.y - this.width/2, this.width, this.width);
-						break;
-					case 2:
-						context.drawImage(_IMAGES.regioLeft0, this.x - this.width/2, this.y - this.width/2, this.width, this.width);
-						break;
-					case 3:
-						context.drawImage(_IMAGES.regioBack0, this.x - this.width/2, this.y - this.width/2, this.width, this.width);
-						break;
+				if (_PLAYER === 'cargo') {
+					switch(this.orientation) {
+						case 0:
+							context.drawImage(_IMAGES.cargoRight0, this.x - this.width/2, this.y - this.width/2, this.width, this.width);
+							break;
+						case 1:
+							context.drawImage(_IMAGES.cargoFront0, this.x - this.width/2, this.y - this.width/2, this.width, this.width);
+							break;
+						case 2:
+							context.drawImage(_IMAGES.cargoLeft0, this.x - this.width/2, this.y - this.width/2, this.width, this.width);
+							break;
+						case 3:
+							context.drawImage(_IMAGES.cargoBack0, this.x - this.width/2, this.y - this.width/2, this.width, this.width);
+							break;
+					}
+				} else {
+					switch(this.orientation) {
+						case 0:
+							context.drawImage(_IMAGES.regioRight0, this.x - this.width/2, this.y - this.width/2, this.width, this.width);
+							break;
+						case 1:
+							context.drawImage(_IMAGES.regioFront0, this.x - this.width/2, this.y - this.width/2, this.width, this.width);
+							break;
+						case 2:
+							context.drawImage(_IMAGES.regioLeft0, this.x - this.width/2, this.y - this.width/2, this.width, this.width);
+							break;
+						case 3:
+							context.drawImage(_IMAGES.regioBack0, this.x - this.width/2, this.y - this.width/2, this.width, this.width);
+							break;
+					}
 				}
 			}
 		});
@@ -696,6 +722,14 @@
 		_IMAGES.regioRight0.src = 'assets/regio-right-0.png';
 		_IMAGES.regioFront0 = new Image;
 		_IMAGES.regioFront0.src = 'assets/regio-front-0.png';
+		_IMAGES.cargoBack0 = new Image;
+		_IMAGES.cargoBack0.src = 'assets/cargo-back.png';
+		_IMAGES.cargoLeft0 = new Image;
+		_IMAGES.cargoLeft0.src = 'assets/cargo-left.png';
+		_IMAGES.cargoRight0 = new Image;
+		_IMAGES.cargoRight0.src = 'assets/cargo-right.png';
+		_IMAGES.cargoFront0 = new Image;
+		_IMAGES.cargoFront0.src = 'assets/cargo-front.png';
 		_IMAGES.iceWhite = new Image;
 		_IMAGES.iceWhite.src = 'assets/ice-white.png';
 		_IMAGES.iceBlue = new Image;
